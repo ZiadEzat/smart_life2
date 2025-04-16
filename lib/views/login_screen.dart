@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_life/views/registeration_screen.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:smart_life/views/homepage.dart';
 import 'package:smart_life/widgets/background_linear.dart';
@@ -56,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 color: Colors.grey[900],
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Column(
+              child:               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const Text(
@@ -87,12 +88,24 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 20),
                   ElevatedButton(
                     style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(Colors.grey[800]),
+                      backgroundColor: MaterialStateProperty.all(Colors.grey[800]),
                     ),
                     onPressed: () => _login(context),
                     child: const Text(
                       'Login',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const RegistrationScreen()),
+                      );
+                    },
+                    child: const Text(
+                      'Don\'t have an account? Register here',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
